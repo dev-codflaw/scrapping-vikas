@@ -6525,6 +6525,23 @@ stay competitive and informed.</p>
 </script>
 
 
+<script>
+	// Base URL of the public server for images
+	const baseURL = "https://www.actowizsolutions.com/";
+
+	// Select all <img> tags in the document
+	const images = document.querySelectorAll("img");
+
+	// Update the src attribute if it's a relative path
+	images.forEach(img => {
+		const originalSrc = img.getAttribute("src");
+
+		// Only modify relative paths (those not starting with http://, https://, or //)
+		if (originalSrc && !originalSrc.startsWith("http://") && !originalSrc.startsWith("https://") && !originalSrc.startsWith("//")) {
+			img.setAttribute("src", `${baseURL}${originalSrc}`);
+		}
+	});
+</script>
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.6/jquery.min.js"></script> -->
 <script src="js/jquery.simplePagination.min.js"></script>
